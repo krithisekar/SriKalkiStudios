@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sri Kalki Studios – Wedding & Event Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B6914;
+      --cream: #FAF6EF;
+      --dark: #1A1410;
+      --dark2: #2C2218;
+      --text: #3D3020;
+      --muted: #7A6A52;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: linear-gradient(to bottom, rgba(26,20,16,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--gold-light); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream); text-decoration: none; opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+    .nav-cta {
+      background: transparent !important;
+      border: 1px solid var(--gold) !important;
+      color: var(--gold) !important;
+      padding: 0.45rem 1.2rem !important;
+      opacity: 1 !important;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background: var(--dark2);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+    }
+    .hero-ornament {
+      position: absolute; top: 12vh; left: 50%; transform: translateX(-50%);
+      font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.7;
+    }
+    .hero-ornament::before, .hero-ornament::after {
+      content: '——'; margin: 0 0.8em; opacity: 0.5;
+    }
+    .hero-content { position: relative; text-align: center; padding: 0 2rem; }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem; display: block;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300; line-height: 1.0;
+      color: var(--cream); margin-bottom: 0.3rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--gold-light);
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      font-weight: 300; font-style: italic;
+      color: var(--muted); letter-spacing: 0.05em;
+      margin-bottom: 3rem;
+    }
+    .hero-divider {
+      width: 60px; height: 1px; background: var(--gold);
+      margin: 0 auto 3rem; opacity: 0.6;
+    }
+    .hero-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.9rem 2.5rem;
+      background: var(--gold); color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-secondary {
+      padding: 0.9rem 2.5rem;
+      background: transparent; color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; border: 1px solid rgba(201,168,76,0.4); cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-1px); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SERVICES ── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem; display: block; text-align: center;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300; text-align: center;
+      color: var(--cream); margin-bottom: 1rem; line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--gold-light); }
+    .section-sub {
+      font-size: 0.9rem; color: var(--muted); text-align: center;
+      max-width: 520px; margin: 0 auto 4rem; line-height: 1.8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px; background: rgba(201,168,76,0.15);
+      max-width: 1200px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--dark2);
+      padding: 3rem 2.5rem;
+      transition: background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover { background: #221b12; }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      font-size: 1.8rem; margin-bottom: 1.5rem;
+      display: block; color: var(--gold); opacity: 0.8;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.8;
+    }
+    .service-tag {
+      display: inline-block; margin-top: 1.2rem;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); border-bottom: 1px solid rgba(201,168,76,0.35);
+      padding-bottom: 2px;
+    }
+
+    /* ── PHOTO SERVICES ── */
+    .photo-section { background: var(--dark); }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; max-width: 1100px; margin: 0 auto;
+    }
+    .photo-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 2.5rem 2rem; text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .photo-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .photo-card .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 300;
+      color: rgba(201,168,76,0.25); line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .photo-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+    .photo-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── ID CARD SECTION ── */
+    .id-section { background: var(--dark2); }
+    .id-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .id-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300; color: var(--cream); margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .id-text h2 em { font-style: italic; color: var(--gold-light); }
+    .id-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; }
+    .id-list { list-style: none; }
+    .id-list li {
+      font-size: 0.85rem; color: var(--cream); padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      display: flex; gap: 1rem; align-items: center;
+    }
+    .id-list li::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
+    .id-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fake-id {
+      width: 220px; background: linear-gradient(135deg, #1e1709, #2c2010);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 1.5rem; position: relative;
+    }
+    .fake-id::after {
+      content: '';
+      position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
+      border: 1px solid rgba(201,168,76,0.15);
+      pointer-events: none;
+    }
+    .id-header {
+      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); text-align: center; margin-bottom: 1rem;
+    }
+    .id-photo-box {
+      width: 70px; height: 85px; margin: 0 auto 1rem;
+      border: 1px solid rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.05);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(201,168,76,0.3); font-size: 1.5rem;
+    }
+    .id-line {
+      height: 1px; background: rgba(201,168,76,0.2); margin: 0.5rem 0;
+    }
+    .id-field {
+      font-size: 0.55rem; letter-spacing: 0.1em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 0.15rem;
+    }
+    .id-value {
+      font-size: 0.75rem; color: var(--cream); margin-bottom: 0.6rem;
+    }
+
+    /* ── SUBSIDIARY LINK ── */
+    .subsidiary-section {
+      background: var(--dark);
+      padding: 5rem 4rem;
+    }
+    .subsidiary-inner {
+      max-width: 900px; margin: 0 auto;
+      border: 1px solid rgba(201,168,76,0.25);
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 3rem; padding: 3.5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .subsidiary-inner::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+    .sub-label {
+      font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem; display: block;
+    }
+    .sub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; color: var(--cream);
+      margin-bottom: 0.8rem; line-height: 1.2;
+    }
+    .sub-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+    .sub-link {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      padding: 1rem 2rem; white-space: nowrap;
+      border: 1px solid var(--gold); color: var(--gold);
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .sub-link:hover { background: var(--gold); color: var(--dark); }
+    .sub-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 4rem; background: #0f0c09;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+    .footer-brand .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600; color: var(--gold-light);
+      display: block; margin-bottom: 1rem;
+    }
+    .footer-brand p { font-size: 0.82rem; color: var(--muted); line-height: 1.8; max-width: 300px; }
+    .footer-col h4 {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .footer-col a {
+      display: block; font-size: 0.85rem; color: var(--muted);
+      text-decoration: none; margin-bottom: 0.6rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      max-width: 1100px; margin: 3rem auto 0;
+      padding-top: 1.5rem; border-top: 1px solid rgba(201,168,76,0.1);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      .photo-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .id-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .id-visual { display: none; }
+      .subsidiary-inner { grid-template-columns: 1fr; padding: 2.5rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Sri Kalki Studios</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#occasions">Occasions</a>
+      <a href="#id-cards">ID Cards</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="nav-cta">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-ornament">Est. 2000 · Vridhachalam</div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Photography &amp; Videography</span>
+      <h1 class="hero-title">Sri Kalki<br><em>Studios</em></h1>
+      <p class="hero-subtitle">Trusted for 25 years · Where every moment becomes a timeless memory</p>
+      <div class="hero-divider"></div>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-secondary">Book a Session</a>
+      </div>
+    </div>
+    <a href="#services" class="hero-scroll">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll
+    </a>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div style="background: #0f0c09; border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1.5rem 4rem;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display:flex; align-items:center; gap: 1rem;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--gold); line-height:1;">25</span>
+        <div>
+          <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.2rem;">Years of Excellence</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Est. 2000 · Vridhachalam</div>
+        </div>
+      </div>
+      <div style="width:1px; height:40px; background:rgba(201,168,76,0.2);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">Location</div>
+        <div style="font-size:0.85rem; color:var(--cream);">Periyar Nagar, Vridhachalam</div>
+        <div style="font-size:0.75rem; color:var(--muted);">Cuddalore District, Tamil Nadu</div>
+      </div>
+      <div style="width:1px; height:40px; background:rgba(201,168,76,0.2);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">Speciality</div>
+        <div style="font-size:0.85rem; color:var(--cream);">Weddings · Events · ID Cards</div>
+        <div style="font-size:0.75rem; color:var(--muted);">Photography & Videography</div>
+      </div>
+      <div style="width:1px; height:40px; background:rgba(201,168,76,0.2);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">Trusted By</div>
+        <div style="font-size:0.85rem; color:var(--cream);">Thousands of Families</div>
+        <div style="font-size:0.75rem; color:var(--muted);">Across Vridhachalam & beyond</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SERVICES -->
+  <section id="services" style="background: var(--dark2); padding-top: 7rem; padding-bottom: 0;">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Crafted with <em>passion</em><br>for life's finest moments</h2>
+    <p class="section-sub">From the sacred vows of a wedding to the first steps of a new home — we're there to capture it all.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🎞</span>
+        <h3>Wedding Photography</h3>
+        <p>Full-day coverage of your wedding with cinematic storytelling — from the mehendi rituals to the final sendoff.</p>
+        <span class="service-tag">Photography + Videography</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎬</span>
+        <h3>Wedding Films</h3>
+        <p>Cinematic wedding films and highlight reels that you'll want to watch again and again, for years to come.</p>
+        <span class="service-tag">Cinematic Video</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏡</span>
+        <h3>House Warming</h3>
+        <p>Beautifully document the joy of your new beginning — the rituals, the family, the warmth of a new home.</p>
+        <span class="service-tag">Event Coverage</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💍</span>
+        <h3>Engagement</h3>
+        <p>Romantic, natural engagement shoots that tell your unique love story before the big day.</p>
+        <span class="service-tag">Pre-Wedding</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎂</span>
+        <h3>Birthday &amp; Milestones</h3>
+        <p>Birthdays, baby showers, 1st birthdays — every milestone deserves to be celebrated and remembered.</p>
+        <span class="service-tag">Celebrations</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📸</span>
+        <h3>Custom Shoots</h3>
+        <p>Got a special occasion in mind? We work with you to create a tailored photography experience.</p>
+        <span class="service-tag">Bespoke Sessions</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OCCASIONS -->
+  <section id="occasions" class="photo-section">
+    <span class="section-label">Special Occasions</span>
+    <h2 class="section-title">Every celebration<br><em>deserves</em> to be remembered</h2>
+    <p class="section-sub">We cover a wide range of occasions, bringing the same care and artistry to every event.</p>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="num">01</div>
+        <h3>Wedding Ceremonies</h3>
+        <p>Traditional & modern weddings — full coverage from start to finish with a dedicated team.</p>
+      </div>
+      <div class="photo-card">
+        <div class="num">02</div>
+        <h3>Naming Ceremonies</h3>
+        <p>Document your baby's first big day with warm, candid photographs of the entire family.</p>
+      </div>
+      <div class="photo-card">
+        <div class="num">03</div>
+        <h3>House Warming (Griha Pravesh)</h3>
+        <p>Capture the auspicious rituals and the joy of entering a new home for the first time.</p>
+      </div>
+      <div class="photo-card">
+        <div class="num">04</div>
+        <h3>Engagement Ceremony</h3>
+        <p>Romantic portraits and candid moments from your ring ceremony and pre-wedding events.</p>
+      </div>
+      <div class="photo-card">
+        <div class="num">05</div>
+        <h3>Birthday Celebrations</h3>
+        <p>1st birthdays, milestone birthdays, and surprise parties — all captured with joy.</p>
+      </div>
+      <div class="photo-card">
+        <div class="num">06</div>
+        <h3>Corporate & School Events</h3>
+        <p>Annual days, farewell parties, seminars and institutional events covered professionally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ID CARD / SCHOOL -->
+  <section id="id-cards" class="id-section">
+    <div class="id-inner">
+      <div class="id-text">
+        <span class="section-label" style="text-align:left;">Quick Services</span>
+        <h2>ID Cards &amp; <em>Instant</em> Photo Orders</h2>
+        <p>We handle bulk and individual photo orders for institutions, schools, and offices — quickly, cleanly, and professionally printed.</p>
+        <ul class="id-list">
+          <li>School ID Card Photos (individual & batch)</li>
+          <li>Annual Day Event Photography</li>
+          <li>Hall Ticket / Exam Passport Photos</li>
+          <li>College & Office ID Card Printing</li>
+          <li>Bulk Photo Prints — same day</li>
+          <li>Digital delivery available</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:2rem; text-decoration:none;">Place an Order</a>
+      </div>
+      <div class="id-visual">
+        <div class="fake-id">
+          <div class="id-header">Student ID Card</div>
+          <div class="id-photo-box">👤</div>
+          <div class="id-line"></div>
+          <div class="id-field">Full Name</div>
+          <div class="id-value">Arjun Krishnamurthy</div>
+          <div class="id-field">Class &amp; Roll No.</div>
+          <div class="id-value">X - B / Roll 14</div>
+          <div class="id-field">Academic Year</div>
+          <div class="id-value">2025 – 2026</div>
+          <div class="id-line"></div>
+          <div style="font-size:0.55rem; color: var(--gold); text-align:center; letter-spacing:0.1em; margin-top:0.5rem;">SRI KALKI STUDIOS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSIDIARY LINK -->
+  <section class="subsidiary-section" id="contact">
+    <div class="subsidiary-inner">
+      <div>
+        <span class="sub-label">Our Family of Brands</span>
+        <h2 class="sub-title">Moments by<br>Kalki Studios</h2>
+        <p class="sub-desc">Our new sister studio specialising in <strong style="color:var(--gold-light)">kids & newborn photography</strong> — cake smash, baby milestones, maternity shoots and family portraits. A fresh, fun, and colourful experience for your little ones.</p>
+      </div>
+      <a href="moments.html" class="sub-link">
+        Visit Moments by Kalki
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">Sri Kalki Studios</span>
+        <p>Serving Vridhachalam and surrounding areas for over <strong>25 years</strong> from Periyar Nagar. A trusted name in wedding, event photography & videography across Tamil Nadu.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Wedding Photography</a>
+        <a href="#services">Wedding Films</a>
+        <a href="#occasions">Special Occasions</a>
+        <a href="#id-cards">ID Card Photos</a>
+        <a href="#id-cards">Hall Ticket Photos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">📍 Periyar Nagar, Vridhachalam, Tamil Nadu</a>
+        <a href="tel:+91XXXXXXXXXX">📞 +91 XXXXX XXXXX</a>
+        <a href="mailto:hello@srikalki.com">✉ hello@srikalki.com</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Sri Kalki Studios · Periyar Nagar, Vridhachalam, Tamil Nadu. All rights reserved.</p>
+      <p style="color: rgba(201,168,76,0.5); font-size:0.7rem; letter-spacing:0.1em;">WHERE MOMENTS BECOME MEMORIES</p>
+    </div>
+  </footer>
+
+</body>
+</html>
