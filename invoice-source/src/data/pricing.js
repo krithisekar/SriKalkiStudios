@@ -6,7 +6,7 @@ export const services = [
   { id: 'lamination', label: 'Lamination Card', icon: 'Shield' },
   { id: 'pvc', label: 'PVC Card', icon: 'IdCard' },
   { id: 'others', label: 'Others (Custom)', icon: 'Package' },
-  { id: 'banner', label: 'Banner', icon: 'Flag' },
+  { id: 'banner', label: 'Banner Photo', icon: 'Flag' },
   { id: 'album', label: 'Album', icon: 'Book' }
 ];
 

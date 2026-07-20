@@ -58,9 +58,9 @@ export default function InvoiceSummary({ service, quantity, onBack }) {
       <div className="summary-container" id="printable-invoice">
         <div className="invoice-header">
           <img src="./logo.png" alt="Sri Kalki Studios Logo" className="invoice-logo" />
-          <h1 className="studio-name">Sri Kalki Studios</h1>
-          <h3 className="studio-tagline">Photography & Videography</h3>
-          <p className="studio-location">Vridhachalam</p>
+          <h1 className="studio-name" style={{ fontFamily: "'Noto Sans Tamil', sans-serif" }}>ஸ்ரீ கல்கி ஸ்டுடியோஸ்</h1>
+          <h3 className="studio-tagline" style={{ fontFamily: "'Noto Sans Tamil', sans-serif" }}>பெரியார் நகர், விருத்தாசலம்</h3>
+          <p className="studio-location">9443405104 | 04143 796017</p>
         </div>
 
         <div className="summary-item">
