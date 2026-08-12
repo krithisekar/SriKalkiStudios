@@ -362,8 +362,13 @@ body {
   font-style: italic;
 }
 
-/* Print Styles */
+/* Print Styles - Optimized for TVS RP3200 Plus (80mm Thermal Printer) */
 @media print {
+  @page {
+    margin: 0;
+    size: 80mm auto;
+  }
+  
   html, body, #root {
     background: white;
     color: black;
@@ -372,33 +377,80 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     overflow: visible !important;
+    width: 100% !important;
+    font-size: 12px;
   }
   
   .glass-panel {
     border: none;
     background: white;
     box-shadow: none;
-    padding: 0;
+    padding: 2mm 5mm !important; /* Small padding for the edges of the roll */
   }
   
-  .btn-primary, .btn-secondary, .header .btn-secondary, .header .title {
-    display: none;
+  .btn-primary, .btn-secondary, .header, .qty-btn {
+    display: none !important;
+  }
+  
+  /* Reset layout for receipt */
+  .summary-container {
+    gap: 0.5rem;
+  }
+  
+  .invoice-header {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed black;
+  }
+  
+  .invoice-logo {
+    max-width: 50px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .studio-name {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 0.1rem;
+  }
+  
+  .studio-tagline, .studio-location {
+    font-size: 0.85rem;
+    color: black;
+  }
+
+  .summary-item {
+    padding: 0.25rem 0;
+    border-bottom: 1px dotted #999;
+  }
+  
+  .summary-label {
+    font-size: 0.9rem;
+    color: black;
+  }
+  
+  .summary-value {
+    font-size: 0.9rem;
+    color: black;
+    font-weight: bold;
+    text-align: right;
   }
   
   .summary-total {
+    font-size: 1.1rem;
     color: black;
+    font-weight: bold;
   }
 
-  .invoice-header, .invoice-footer {
-    border-color: #ccc;
+  .invoice-footer {
+    border-top: 1px dashed black;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
   }
 
-  .studio-name, .thank-you {
+  .thank-you {
+    font-size: 0.9rem;
     color: black;
-  }
-
-  .studio-tagline, .studio-location {
-    color: #444;
   }
   
   * {
@@ -412,9 +464,26 @@ body {
     background: transparent !important;
     box-shadow: none !important;
     padding: 0 !important;
+    color: black !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
   }
-  .size-input {
+  
+  .qty-input {
+    width: auto !important;
     text-align: right !important;
+  }
+  
+  .price-input, .size-input {
+    text-align: right !important;
+  }
+  
+  /* Remove quantity controls flexbox container styling */
+  .quantity-controls {
+    border: none;
+    background: transparent;
+    padding: 0;
+    justify-content: flex-end;
   }
 }
 
